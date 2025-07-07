@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import SafeIcon from '../../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const { FiMail, FiLock, FiEye, FiEyeOff, FiInfo } = FiIcons;
+const { FiMail, FiLock, FiEye, FiEyeOff } = FiIcons;
 
 const LoginForm = () => {
   const { login, sendOTP, verifyOTP } = useAuth();
@@ -73,14 +73,6 @@ const LoginForm = () => {
     }
   };
 
-  const fillAdminCredentials = () => {
-    setFormData({
-      ...formData,
-      email: 'manos.alexandrakis@harsia.gr',
-      password: 'anuNXKnXd3fUw3nWZxRL'
-    });
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary-50 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -95,30 +87,6 @@ const LoginForm = () => {
           <p className="mt-2 text-sm text-secondary-600">
             Administrator Access
           </p>
-        </div>
-
-        {/* Demo Credentials Info */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <div className="flex items-start">
-            <SafeIcon icon={FiInfo} className="w-5 h-5 text-blue-600 mt-0.5 mr-3" />
-            <div className="text-sm">
-              <h3 className="font-medium text-blue-900 mb-2">Administrator Access</h3>
-              <div className="space-y-2 text-blue-800">
-                <div>
-                  <strong>Admin:</strong>
-                  <button
-                    onClick={fillAdminCredentials}
-                    className="ml-2 text-blue-600 hover:text-blue-800 underline"
-                  >
-                    manos.alexandrakis@harsia.gr
-                  </button>
-                </div>
-              </div>
-              <p className="mt-2 text-xs text-blue-700">
-                Click on credentials to auto-fill the form
-              </p>
-            </div>
-          </div>
         </div>
 
         {step === 'login' && (
@@ -140,7 +108,7 @@ const LoginForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="appearance-none block w-full pl-10 pr-3 py-3 border border-secondary-300 rounded-lg placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    placeholder="manos.alexandrakis@harsia.gr"
+                    placeholder="Enter your email"
                   />
                 </div>
               </div>
@@ -161,7 +129,7 @@ const LoginForm = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     className="appearance-none block w-full pl-10 pr-10 py-3 border border-secondary-300 rounded-lg placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    placeholder="••••••••"
+                    placeholder="Enter your password"
                   />
                   <button
                     type="button"
